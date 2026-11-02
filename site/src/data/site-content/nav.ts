@@ -37,7 +37,7 @@ const allLinks: NavLink[] = [
   { label: 'Changelog', href: '/changelog/', mobileGroup: 'project' },
   {
     label: 'GitHub',
-    href: 'https://github.com/fstubner/netscli',
+    href: 'https://github.com/AxiomOperator/netXcli',
     external: true,
     mobileGroup: 'project',
   },

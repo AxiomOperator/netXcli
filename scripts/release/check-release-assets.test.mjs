@@ -38,7 +38,7 @@ function completeDraft() {
   for (const [key, asset] of Object.entries(UPDATE_ASSETS)) {
     platforms[key] = {
       signature: Buffer.from(`untrusted comment: test\nsig\ntrusted comment: version:0.3.5\nglobal\n`).toString('base64'),
-      url: `https://github.com/fstubner/netscli/releases/download/${TAG}/${asset}`,
+      url: `https://github.com/AxiomOperator/netXcli/releases/download/${TAG}/${asset}`,
     };
   }
   const latest = { version: '0.3.5', notes: 'test', pub_date: '2026-10-07T00:00:00.000Z', platforms };
@@ -109,7 +109,7 @@ test('latest.json for another version fails it', () => {
 test('latest.json pointing at another tag fails it', () => {
   const draft = completeDraft();
   draft.latest.platforms['windows-x86_64-msi'].url =
-    'https://github.com/fstubner/netscli/releases/download/v0.3.4/netscli-gui-windows-x86_64.msi';
+    'https://github.com/AxiomOperator/netXcli/releases/download/v0.3.4/netscli-gui-windows-x86_64.msi';
   const problems = checkReleaseAssets(draft);
   assert.equal(problems.length, 1);
   assert.match(problems[0], /^latest\.json sends windows-x86_64-msi to .*v0\.3\.4/);

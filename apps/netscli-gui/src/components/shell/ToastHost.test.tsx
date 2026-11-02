@@ -16,7 +16,7 @@ vi.mock('../../services/updater', () => ({ installUpdate: vi.fn() }));
 const { openAllowedExternalUrl } = await import('../../services/externalLinks');
 const { ToastHost } = await import('./ToastHost');
 
-const RELEASE = 'https://github.com/fstubner/netscli/releases/tag/v0.4.0';
+const RELEASE = 'https://github.com/AxiomOperator/netXcli/releases/tag/v0.4.0';
 
 function updates(overrides = {}) {
   return {

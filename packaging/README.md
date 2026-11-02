@@ -35,7 +35,7 @@ trusting GitHub's binary storage:
 cosign verify-blob \
   --certificate netscli-linux-x86_64.pem \
   --signature   netscli-linux-x86_64.sig \
-  --certificate-identity-regexp 'https://github.com/fstubner/netscli/.github/workflows/release\.yml@.*' \
+  --certificate-identity-regexp 'https://github.com/AxiomOperator/netXcli/.github/workflows/release\.yml@.*' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   netscli-linux-x86_64
 ```

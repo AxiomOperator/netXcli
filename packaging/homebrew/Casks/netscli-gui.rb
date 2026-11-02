@@ -24,11 +24,11 @@ cask "netscli-gui" do
 
   on_arm do
     sha256 "@@SHA256_MACOS_AARCH64@@"
-    url "https://github.com/fstubner/netscli/releases/download/v#{version}/netscli-gui-macos-aarch64.dmg"
+    url "https://github.com/AxiomOperator/netXcli/releases/download/v#{version}/netscli-gui-macos-aarch64.dmg"
   end
   on_intel do
     sha256 "@@SHA256_MACOS_X86_64@@"
-    url "https://github.com/fstubner/netscli/releases/download/v#{version}/netscli-gui-macos-x86_64.dmg"
+    url "https://github.com/AxiomOperator/netXcli/releases/download/v#{version}/netscli-gui-macos-x86_64.dmg"
   end
 
   name "NetsCLI"

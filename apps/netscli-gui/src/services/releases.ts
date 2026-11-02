@@ -10,7 +10,7 @@ interface GitHubReleaseResponse {
   name?: string;
 }
 
-const LATEST_RELEASE_URL = 'https://api.github.com/repos/fstubner/netscli/releases/latest';
+const LATEST_RELEASE_URL = 'https://api.github.com/repos/AxiomOperator/netXcli/releases/latest';
 
 export function normalizeVersion(version: string): string {
   return version.trim().replace(/^v/i, '').split(/[+-]/)[0];

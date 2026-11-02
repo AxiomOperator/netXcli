@@ -20,7 +20,7 @@ TAG="${1:?usage: publish-homebrew-cask.sh <tag>}"
 validate_tag "$TAG"
 VERSION="${TAG#v}"
 
-BASE="https://github.com/fstubner/netscli/releases/download/${TAG}"
+BASE="https://github.com/AxiomOperator/netXcli/releases/download/${TAG}"
 ASSETS=(
   "netscli-gui-macos-aarch64.dmg"
   "netscli-gui-macos-x86_64.dmg"
@@ -57,11 +57,11 @@ cask "netscli-gui" do
 
   on_arm do
     sha256 "@@SHA_ARM@@"
-    url "https://github.com/fstubner/netscli/releases/download/v#{version}/netscli-gui-macos-aarch64.dmg"
+    url "https://github.com/AxiomOperator/netXcli/releases/download/v#{version}/netscli-gui-macos-aarch64.dmg"
   end
   on_intel do
     sha256 "@@SHA_INTEL@@"
-    url "https://github.com/fstubner/netscli/releases/download/v#{version}/netscli-gui-macos-x86_64.dmg"
+    url "https://github.com/AxiomOperator/netXcli/releases/download/v#{version}/netscli-gui-macos-x86_64.dmg"
   end
 
   name "NetsCLI"

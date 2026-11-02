@@ -15,10 +15,10 @@
   "homepage": "https://netscli.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fstubner/netscli.git"
+    "url": "git+https://github.com/AxiomOperator/netXcli.git"
   },
   "bugs": {
-    "url": "https://github.com/fstubner/netscli/issues"
+    "url": "https://github.com/AxiomOperator/netXcli/issues"
   },
   "license": "MIT",
   "author": "Felix Stubner",

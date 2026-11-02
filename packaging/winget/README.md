@@ -65,7 +65,7 @@ and the root version manifest) from a release URL:
 winget install Microsoft.WingetCreate
 
 wingetcreate new `
-  --urls https://github.com/fstubner/netscli/releases/download/vX.Y.Z/netscli-windows-x86_64.exe `
+  --urls https://github.com/AxiomOperator/netXcli/releases/download/vX.Y.Z/netscli-windows-x86_64.exe `
   --version X.Y.Z `
   fstubner.netscli
 ```
@@ -103,7 +103,7 @@ would open a second PR for a version winget already has.
 
 ```powershell
 wingetcreate update fstubner.netscli `
-  --urls https://github.com/fstubner/netscli/releases/download/vX.Y.Z/netscli-windows-x86_64.exe `
+  --urls https://github.com/AxiomOperator/netXcli/releases/download/vX.Y.Z/netscli-windows-x86_64.exe `
   --version X.Y.Z `
   --submit --token <gh-token>
 ```

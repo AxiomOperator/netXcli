@@ -97,5 +97,5 @@ NetsCLI intentionally limits expensive operations:
 
 The rules for where new code goes, how a new operation reaches every
 interface, and what has to stay compatible are in
-[ARCHITECTURE.md](https://github.com/fstubner/netscli/blob/main/docs/ARCHITECTURE.md)
+[ARCHITECTURE.md](https://github.com/AxiomOperator/netXcli/blob/main/docs/ARCHITECTURE.md)
 in the repository.

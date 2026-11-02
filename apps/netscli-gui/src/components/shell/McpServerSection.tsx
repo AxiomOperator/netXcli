@@ -7,19 +7,16 @@ import { type CliDetection, detectNetscliCli } from '../../services/netscli';
  *  already on the control, so a longer badge reads as a stuck state. */
 const COPIED_MS = 1400;
 
-const INSTALL_DOCS = 'https://netscli.com/docs/install/';
+const INSTALL_DOCS = 'https://github.com/AxiomOperator/netXcli#install';
 
-/** One command per platform, the same route the site recommends first.
- *
- *  Duplicated from the site rather than imported -- the two are separate
- *  packages with no shared module -- so this is a second copy that can drift.
- *  Kept to ONE command per platform to bound that: the link below carries
- *  every other route, and the docs page is the thing that has to stay correct.
- */
+/** This fork publishes no packages, so every platform builds from source.
+ *  Package managers and netscli.com serve the upstream project's builds. */
+const INSTALL_FROM_SOURCE = 'cargo install --git https://github.com/AxiomOperator/netXcli --locked netscli';
+
 const INSTALL_COMMAND: Record<CliDetection['os'], string> = {
-  windows: 'winget install netscli',
-  macos: 'brew tap fstubner/tap && brew install netscli',
-  linux: 'curl -fsSL https://netscli.com/install.sh | bash',
+  windows: INSTALL_FROM_SOURCE,
+  macos: INSTALL_FROM_SOURCE,
+  linux: INSTALL_FROM_SOURCE,
 };
 
 /** The block a user pastes into their MCP client.

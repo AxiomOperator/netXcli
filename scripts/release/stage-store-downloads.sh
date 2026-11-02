@@ -19,7 +19,7 @@ set -euo pipefail
 dist="${1:?usage: stage-store-downloads.sh <site dist dir> [count]}"
 count="${2:-3}"
 asset="netscli-gui-windows-x86_64.msi"
-repo="${GITHUB_REPOSITORY:-fstubner/netscli}"
+repo="${GITHUB_REPOSITORY:-AxiomOperator/netXcli}"
 
 [ -d "${dist}" ] || { echo "no such directory: ${dist}" >&2; exit 1; }
 

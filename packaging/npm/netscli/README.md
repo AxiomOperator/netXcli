@@ -39,7 +39,7 @@ of a 13 MB binary, and packet capture works, which it cannot here.
   Npcap on the machine, so those builds are not published to npm. Everything
   else works.
 - **The desktop app.** GUI installers come from the
-  [releases page](https://github.com/fstubner/netscli/releases) or a system
+  [releases page](https://github.com/AxiomOperator/netXcli/releases) or a system
   package manager.
 - **Anything outside linux-x64, linux-arm64, darwin-x64, darwin-arm64 and
   windows-x64.** Other targets are built, just not shipped here.

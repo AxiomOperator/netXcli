@@ -42,7 +42,7 @@ export const faq: FaqItem[] = [
         <div class="faq-command"><span>Windows app</span><code>winget install netscli-gui</code></div>
         <div class="faq-command"><span>macOS app</span><code>brew install --cask fstubner/tap/netscli-gui</code></div>
       </div>
-      <p>Linux has a <code>.deb</code> and an AppImage. Every download is on the <a href="https://github.com/fstubner/netscli/releases/latest">GitHub releases page</a>.</p>
+      <p>Linux has a <code>.deb</code> and an AppImage. Every download is on the <a href="https://github.com/AxiomOperator/netXcli/releases/latest">GitHub releases page</a>.</p>
     `,
   },
   {
@@ -62,9 +62,9 @@ export const faq: FaqItem[] = [
   {
     group: 'What it is',
     q: 'Is NetsCLI open source?',
-    a: 'Yes. NetsCLI is MIT-licensed. Source, issue tracker, and releases are at https://github.com/fstubner/netscli. The library (netscli-core) and MCP server (netscli-mcp) are published to crates.io so other Rust projects can build on them.',
+    a: 'Yes. NetsCLI is MIT-licensed. Source, issue tracker, and releases are at https://github.com/AxiomOperator/netXcli. The library (netscli-core) and MCP server (netscli-mcp) are published to crates.io so other Rust projects can build on them.',
     aHtml:
-      'Yes. NetsCLI is MIT-licensed. Source, issue tracker, and releases are at <a href="https://github.com/fstubner/netscli">github.com/fstubner/netscli</a>. The library (<a href="https://crates.io/crates/netscli-core">netscli-core</a>) and MCP server (<a href="https://crates.io/crates/netscli-mcp">netscli-mcp</a>) are published to crates.io so other Rust projects can build on them.',
+      'Yes. NetsCLI is MIT-licensed. Source, issue tracker, and releases are at <a href="https://github.com/AxiomOperator/netXcli">github.com/AxiomOperator/netXcli</a>. The library (<a href="https://crates.io/crates/netscli-core">netscli-core</a>) and MCP server (<a href="https://crates.io/crates/netscli-mcp">netscli-mcp</a>) are published to crates.io so other Rust projects can build on them.',
   },
   {
     group: 'Limits and dependencies',

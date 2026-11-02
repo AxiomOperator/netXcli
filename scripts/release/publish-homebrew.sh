@@ -38,7 +38,7 @@ TAG="${1:?usage: publish-homebrew.sh <tag>}"
 validate_tag "$TAG"
 VERSION="${TAG#v}"
 
-BASE="https://github.com/fstubner/netscli/releases/download/${TAG}"
+BASE="https://github.com/AxiomOperator/netXcli/releases/download/${TAG}"
 ASSETS=(
   "netscli-macos-aarch64"
   "netscli-macos-x86_64"

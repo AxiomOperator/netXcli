@@ -178,7 +178,7 @@ jobs:
           for crate in netscli-core netscli-mcp netscli; do
             # crates.io's API asks for a User-Agent naming the caller.
             code=$(curl -sS -o /dev/null -w '%{http_code}' \
-              -H 'User-Agent: netscli-release (github.com/fstubner/netscli)' \
+              -H 'User-Agent: netscli-release (github.com/AxiomOperator/netXcli)' \
               "https://crates.io/api/v1/crates/${crate}/${version}")
             case "$code" in
               200) echo "${crate} ${version} is already on crates.io; skipping it." ;;
@@ -359,7 +359,7 @@ jobs:
           TAG: ${{ env.TAG }}
         run: |
           set -euo pipefail
-          url="https://github.com/fstubner/netscli/releases/download/${TAG}/netscli-windows-x86_64.exe.sha256"
+          url="https://github.com/AxiomOperator/netXcli/releases/download/${TAG}/netscli-windows-x86_64.exe.sha256"
           echo "→ ${url}"
           for i in {1..30}; do
             if curl -fsSL --head "$url" >/dev/null 2>&1; then
@@ -429,7 +429,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.WINGET_TOKEN }}
           VERSION: ${{ steps.pkg.outputs.version }}
         run: |
-          $url = "https://github.com/fstubner/netscli/releases/download/$env:TAG/netscli-windows-x86_64.exe"
+          $url = "https://github.com/AxiomOperator/netXcli/releases/download/$env:TAG/netscli-windows-x86_64.exe"
           & $env:KOMAC update fstubner.netscli --version $env:VERSION --urls $url --submit
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
@@ -497,7 +497,7 @@ jobs:
           # Each `run:` block is a fresh shell, so the Validate tag step's
           # source of lib.sh does not carry over to this one.
           . scripts/release/lib.sh
-          BASE="https://github.com/fstubner/netscli/releases/download/${TAG}"
+          BASE="https://github.com/AxiomOperator/netXcli/releases/download/${TAG}"
           for arch in x86_64 aarch64; do
             echo "→ verifying netscli-linux-${arch}"
             sha=$(verified_sha "$BASE" "netscli-linux-${arch}")
@@ -505,7 +505,7 @@ jobs:
           done
           # LICENSE is hashed from the bytes we fetch, so there is no sidecar
           # to distrust here.
-          license_url="https://raw.githubusercontent.com/fstubner/netscli/${TAG}/LICENSE"
+          license_url="https://raw.githubusercontent.com/AxiomOperator/netXcli/${TAG}/LICENSE"
           echo "→ ${license_url}"
           license_sha=$(curl -fsSL "$license_url" | sha256sum | awk '{print $1}')
           echo "license=${license_sha}" >> "$GITHUB_OUTPUT"
@@ -626,7 +626,7 @@ jobs:
           TAG: ${{ env.TAG }}
         run: |
           set -euo pipefail
-          url="https://github.com/fstubner/netscli/releases/download/${TAG}/netscli-gui-windows-x86_64.msi.sha256"
+          url="https://github.com/AxiomOperator/netXcli/releases/download/${TAG}/netscli-gui-windows-x86_64.msi.sha256"
           echo "→ ${url}"
           for i in {1..30}; do
             if curl -fsSL --head "$url" >/dev/null 2>&1; then
@@ -690,7 +690,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.WINGET_TOKEN }}
           VERSION: ${{ steps.pkg.outputs.version }}
         run: |
-          $url = "https://github.com/fstubner/netscli/releases/download/$env:TAG/netscli-gui-windows-x86_64.msi"
+          $url = "https://github.com/AxiomOperator/netXcli/releases/download/$env:TAG/netscli-gui-windows-x86_64.msi"
           & $env:KOMAC update fstubner.netscli.gui --version $env:VERSION --urls $url --submit
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
@@ -738,17 +738,17 @@ jobs:
           set -euo pipefail
           # Fresh shell per step — the Validate tag step's source is gone.
           . scripts/release/lib.sh
-          BASE="https://github.com/fstubner/netscli/releases/download/${TAG}"
+          BASE="https://github.com/AxiomOperator/netXcli/releases/download/${TAG}"
           echo "→ verifying netscli-gui-linux-x86_64.AppImage"
           sha=$(verified_sha "$BASE" "netscli-gui-linux-x86_64.AppImage")
           echo "x86_64=${sha}" >> "$GITHUB_OUTPUT"
           # LICENSE and the icon are hashed from the bytes we fetch; no
           # sidecar is involved.
-          license_url="https://raw.githubusercontent.com/fstubner/netscli/${TAG}/LICENSE"
+          license_url="https://raw.githubusercontent.com/AxiomOperator/netXcli/${TAG}/LICENSE"
           echo "→ ${license_url}"
           license_sha=$(curl -fsSL "$license_url" | sha256sum | awk '{print $1}')
           echo "license=${license_sha}" >> "$GITHUB_OUTPUT"
-          icon_url="https://raw.githubusercontent.com/fstubner/netscli/${TAG}/apps/netscli-gui/src-tauri/icons/128x128.png"
+          icon_url="https://raw.githubusercontent.com/AxiomOperator/netXcli/${TAG}/apps/netscli-gui/src-tauri/icons/128x128.png"
           echo "→ ${icon_url}"
           icon_sha=$(curl -fsSL "$icon_url" | sha256sum | awk '{print $1}')
           echo "icon=${icon_sha}" >> "$GITHUB_OUTPUT"
@@ -848,7 +848,7 @@ jobs:
   # they get all three, made the same way release.yml makes them. Their
   # Sigstore identity is this file rather than release.yml, because the
   # bundles are built after the release is public:
-  #   https://github.com/fstubner/netscli/.github/workflows/publish.yml@refs/heads/main
+  #   https://github.com/AxiomOperator/netXcli/.github/workflows/publish.yml@refs/heads/main
   # or @refs/tags/vX.Y.Z when a release promoted by hand starts this
   # workflow from its tag. docs/RELEASE.md gives the verify command.
   mcpb-sign:

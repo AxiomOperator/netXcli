@@ -280,7 +280,7 @@ jobs:
       # Sigstore keyless signing via the GitHub Actions OIDC token. Produces
       # a .sig and .pem alongside each binary; verifiable by anyone with:
       #   cosign verify-blob --signature <asset>.sig --certificate <asset>.pem \
-      #     --certificate-identity-regexp '^https://github\.com/fstubner/netscli/\.github/workflows/release\.yml@refs/(heads/main|tags/v[0-9.]+)$' \
+      #     --certificate-identity-regexp '^https://github\.com/AxiomOperator/netXcli/\.github/workflows/release\.yml@refs/(heads/main|tags/v[0-9.]+)$' \
       #     --certificate-oidc-issuer https://token.actions.githubusercontent.com \
       #     <asset>
       # The identity is this file on main (or, before v0.3.1, on the release

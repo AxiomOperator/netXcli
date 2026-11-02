@@ -11,9 +11,9 @@ import { openUrl } from '@tauri-apps/plugin-opener';
 const ALLOWED_EXTERNAL_HOSTS: Record<string, (pathname: string) => boolean> = {
   'netscli.com': () => true,
   'github.com': (pathname) =>
-    pathname === '/fstubner/netscli' ||
-    pathname === '/fstubner/netscli/' ||
-    pathname.startsWith('/fstubner/netscli/'),
+    pathname === '/AxiomOperator/netXcli' ||
+    pathname === '/AxiomOperator/netXcli/' ||
+    pathname.startsWith('/AxiomOperator/netXcli/'),
 };
 
 export function isAllowedExternalUrl(url: string): boolean {

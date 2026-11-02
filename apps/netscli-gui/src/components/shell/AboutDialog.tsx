@@ -56,15 +56,15 @@ export function AboutDialog({ appVersion, onClose }: AboutDialogProps) {
           <span>Tauri desktop</span>
         </div>
         <div className="about-links">
-          <button onClick={() => openProjectUrl('https://github.com/fstubner/netscli')}>
+          <button onClick={() => openProjectUrl('https://github.com/AxiomOperator/netXcli')}>
             <GitHubIcon size={14} />
             GitHub
           </button>
-          <button onClick={() => openProjectUrl('https://github.com/fstubner/netscli/releases/latest')}>
+          <button onClick={() => openProjectUrl('https://github.com/AxiomOperator/netXcli/releases/latest')}>
             <ExternalLink size={14} />
             Releases
           </button>
-          <button onClick={() => openProjectUrl('https://github.com/fstubner/netscli#readme')}>
+          <button onClick={() => openProjectUrl('https://github.com/AxiomOperator/netXcli#readme')}>
             <ExternalLink size={14} />
             README
           </button>

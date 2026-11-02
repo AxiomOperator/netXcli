@@ -4,10 +4,10 @@
 
 *A network scanner written in Rust. CLI, terminal UI, desktop app, and MCP server. One library behind all four.*
 
-[![CI](https://github.com/fstubner/netscli/actions/workflows/ci.yml/badge.svg)](https://github.com/fstubner/netscli/actions/workflows/ci.yml)
+[![CI](https://github.com/AxiomOperator/netXcli/actions/workflows/ci.yml/badge.svg)](https://github.com/AxiomOperator/netXcli/actions/workflows/ci.yml)
 [![crates.io](https://img.shields.io/crates/v/netscli.svg)](https://crates.io/crates/netscli)
-[![Release](https://img.shields.io/github/v/release/fstubner/netscli)](https://github.com/fstubner/netscli/releases)
-[![Downloads](https://img.shields.io/github/downloads/fstubner/netscli/total)](https://github.com/fstubner/netscli/releases)
+[![Release](https://img.shields.io/github/v/release/AxiomOperator/netXcli)](https://github.com/AxiomOperator/netXcli/releases)
+[![Downloads](https://img.shields.io/github/downloads/AxiomOperator/netXcli/total)](https://github.com/AxiomOperator/netXcli/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **[Documentation](https://netscli.com/docs/)** · **[Install](https://netscli.com/docs/install/)** · **[Changelog](https://netscli.com/changelog/)**
@@ -49,24 +49,20 @@ The desktop app is a separate download over the same core.
 
 ## Install
 
+This is a personal fork with no published releases or packages, so build it
+from source. Package-manager installs of `netscli` get the upstream project's
+builds, not this fork.
+
 ```bash
-# macOS / Linux
-brew tap fstubner/tap && brew install netscli
+# CLI, TUI and MCP server
+cargo install --git https://github.com/AxiomOperator/netXcli --locked netscli
 
-# Windows
-winget install netscli        # CLI, TUI and MCP server
-winget install netscli-gui    # desktop app
+# With packet capture (needs libpcap, or Npcap on Windows)
+cargo install --git https://github.com/AxiomOperator/netXcli --locked netscli --features pcap
 
-# Any platform, via cargo
-cargo install netscli
+# Desktop app, from a clone of this repo
+cd apps/netscli-gui && npm install && npm run tauri build
 ```
-
-Desktop installers for Windows, macOS and Linux are attached to every
-[release](https://github.com/fstubner/netscli/releases/latest).
-
-Scoop, the AUR, the one-line install scripts, packet-capture builds and
-signature verification are all covered in the
-**[install guide](https://netscli.com/docs/install/)**.
 
 ## Usage
 
@@ -106,7 +102,7 @@ Full command reference: **[CLI](https://netscli.com/docs/cli/)** ·
 That form needs netscli installed. To skip the install, use `npx` as the
 command (`"command": "npx", "args": ["-y", "netscli", "serve"]`), or open an
 `.mcpb` bundle from the
-[latest release](https://github.com/fstubner/netscli/releases/latest) in a
+[latest release](https://github.com/AxiomOperator/netXcli/releases/latest) in a
 client that supports them.
 
 Nine tools by default: discover, scan, ping, DNS, ARP, inspect, sweep,

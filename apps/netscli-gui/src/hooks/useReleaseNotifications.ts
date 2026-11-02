@@ -25,7 +25,7 @@ export interface ReleaseUpdates {
 }
 
 export function releasePageUrl(version: string): string {
-  return `https://github.com/fstubner/netscli/releases/tag/v${version}`;
+  return `https://github.com/AxiomOperator/netXcli/releases/tag/v${version}`;
 }
 
 export function useReleaseNotifications({

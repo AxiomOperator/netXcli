@@ -5,7 +5,7 @@
 If you find a security issue, **please do not open a public GitHub
 issue**. Use GitHub's private vulnerability reporting instead:
 
-https://github.com/fstubner/netscli/security/advisories/new
+https://github.com/AxiomOperator/netXcli/security/advisories/new
 
 I'll acknowledge within a few days, discuss a fix, and coordinate a
 release and disclosure timeline with you.
@@ -21,7 +21,7 @@ is pre-`1.0`, so older releases aren't patched, and the fix lands in the
 next point release.
 
 "Latest published" means the newest tag on
-[the releases page](https://github.com/fstubner/netscli/releases), not
+[the releases page](https://github.com/AxiomOperator/netXcli/releases), not
 whatever version number happens to be in the source tree, which may be
 ahead of what has actually shipped.
 
@@ -165,4 +165,4 @@ moderates that Dependabot had never raised, while Dependabot was reporting
 six it grouped differently. Dependabot's alerts are only visible to people
 with write access to the repository, so the public record of what the
 scanners found is the runs of the
-[Audit workflow](https://github.com/fstubner/netscli/actions/workflows/audit.yml).
+[Audit workflow](https://github.com/AxiomOperator/netXcli/actions/workflows/audit.yml).

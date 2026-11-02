@@ -35,6 +35,6 @@ export const privacyCopy: PrivacyCopy = {
 <p>This site is hosted on GitHub Pages behind Cloudflare, which handles every request to it and so sees your IP address. It uses Cloudflare Web Analytics, which counts page views without cookies and without identifying visitors. The landing page asks GitHub and crates.io for the star and download counts it shows, and the changelog page asks GitHub for the release notes. Your browser contacts those services directly.</p>
 
 <h2>Contact</h2>
-<p>Questions about privacy can go to the <a href="https://github.com/fstubner/netscli/issues">issue tracker</a>.</p>
+<p>Questions about privacy can go to the <a href="https://github.com/AxiomOperator/netXcli/issues">issue tracker</a>.</p>
 `,
 };

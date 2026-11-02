@@ -11,7 +11,7 @@ const options = {
   operationToasts: false,
   persistentHistory: true,
 };
-const RELEASE = 'https://github.com/fstubner/netscli/releases/tag/v0.4.0';
+const RELEASE = 'https://github.com/AxiomOperator/netXcli/releases/tag/v0.4.0';
 
 describe('update toast', () => {
   it('names the version', () => {

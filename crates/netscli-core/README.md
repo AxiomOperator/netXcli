@@ -1,6 +1,6 @@
 # netscli-core
 
-The library behind [netscli](https://github.com/fstubner/netscli). If
+The library behind [netscli](https://github.com/AxiomOperator/netXcli). If
 you want the CLI, the TUI, the desktop app, or the MCP server, use the
 [`netscli`](https://crates.io/crates/netscli) binary crate. This crate
 is for building your own tools on top of the same primitives.

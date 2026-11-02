@@ -5,7 +5,7 @@
   "license": "MIT",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/fstubner/netscli/releases/download/v0.3.5/netscli-gui-windows-x86_64.msi",
+      "url": "https://github.com/AxiomOperator/netXcli/releases/download/v0.3.5/netscli-gui-windows-x86_64.msi",
       "hash": "@@SHA256_WINDOWS_GUI@@"
     }
   },
@@ -17,12 +17,12 @@
     ]
   ],
   "checkver": {
-    "github": "https://github.com/fstubner/netscli"
+    "github": "https://github.com/AxiomOperator/netXcli"
   },
   "autoupdate": {
     "architecture": {
       "64bit": {
-        "url": "https://github.com/fstubner/netscli/releases/download/v$version/netscli-gui-windows-x86_64.msi"
+        "url": "https://github.com/AxiomOperator/netXcli/releases/download/v$version/netscli-gui-windows-x86_64.msi"
       }
     },
     "hash": {

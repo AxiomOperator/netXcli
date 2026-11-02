@@ -7,7 +7,7 @@ export const installCopy: SectionCopy = {
     'Install the desktop app or the command line. Both drive the same Rust core. <a href="/docs/install/">Full install guide →</a>',
 };
 
-const RELEASE_DOWNLOAD = 'https://github.com/fstubner/netscli/releases/latest/download';
+const RELEASE_DOWNLOAD = 'https://github.com/AxiomOperator/netXcli/releases/latest/download';
 
 /** Shown on the direct .dmg rows and on the Homebrew cask.
  *

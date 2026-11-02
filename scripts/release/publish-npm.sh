@@ -55,7 +55,7 @@ if [[ "$MODE" != "publish" && "$MODE" != "--build-only" ]]; then
   exit 2
 fi
 
-BASE="https://github.com/fstubner/netscli/releases/download/${TAG}"
+BASE="https://github.com/AxiomOperator/netXcli/releases/download/${TAG}"
 TEMPLATE_DIR="${REPO_ROOT}/packaging/npm/netscli"
 
 # package-name suffix : npm `os` : npm `cpu` : release asset
@@ -131,7 +131,7 @@ for entry in "${PLATFORMS[@]}"; do
   "homepage": "https://netscli.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fstubner/netscli.git"
+    "url": "git+https://github.com/AxiomOperator/netXcli.git"
   },
   "license": "MIT",
   "author": "Felix Stubner",
@@ -160,7 +160,7 @@ npx netscli --help
 \`\`\`
 
 Documentation: [netscli.com](https://netscli.com) ·
-Source: [github.com/fstubner/netscli](https://github.com/fstubner/netscli)
+Source: [github.com/AxiomOperator/netXcli](https://github.com/AxiomOperator/netXcli)
 EOF
 
   published_names+=("$pkg")

@@ -52,7 +52,7 @@ VERSION="${TAG#v}"
 mkdir -p "$OUT_DIR"
 OUT_DIR="$(cd "$OUT_DIR" && pwd)"
 
-BASE="https://github.com/fstubner/netscli/releases/download/${TAG}"
+BASE="https://github.com/AxiomOperator/netXcli/releases/download/${TAG}"
 TEMPLATE="${REPO_ROOT}/packaging/mcpb/manifest.json"
 
 # bundle suffix : manifest platform : release asset

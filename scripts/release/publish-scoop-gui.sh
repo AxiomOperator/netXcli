@@ -18,7 +18,7 @@ TAG="${1:?usage: publish-scoop-gui.sh <tag>}"
 validate_tag "$TAG"
 VERSION="${TAG#v}"
 
-BASE="https://github.com/fstubner/netscli/releases/download/${TAG}"
+BASE="https://github.com/AxiomOperator/netXcli/releases/download/${TAG}"
 ASSET="netscli-gui-windows-x86_64.msi"
 
 echo "→ verifying ${ASSET}"

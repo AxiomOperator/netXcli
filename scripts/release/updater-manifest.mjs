@@ -38,7 +38,7 @@ import process from 'node:process';
 
 import { releaseSummary } from '../release-summary.mjs';
 
-const REPO = 'https://github.com/fstubner/netscli';
+const REPO = 'https://github.com/AxiomOperator/netXcli';
 
 /** Updater key -> release asset. The only table to change when a platform
  *  gains or loses an in-app update. */

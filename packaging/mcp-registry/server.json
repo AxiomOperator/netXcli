@@ -5,7 +5,7 @@
   "description": "Network scanner for AI agents: discover hosts, scan TCP and UDP ports, query DNS and mDNS.",
   "websiteUrl": "https://netscli.com/docs/mcp/",
   "repository": {
-    "url": "https://github.com/fstubner/netscli",
+    "url": "https://github.com/AxiomOperator/netXcli",
     "source": "github"
   },
   "version": "@@VERSION@@",

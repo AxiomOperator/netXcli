@@ -39,9 +39,9 @@ depends=('gcc-libs' 'glibc' 'webkit2gtk-4.1' 'gtk3' 'libayatana-appindicator')
 # doesn't look like a squashfs image", which names the missing payload but
 # not what removed it.
 options=('!strip')
-source=("LICENSE-${pkgver}::https://raw.githubusercontent.com/fstubner/netscli/v${pkgver}/LICENSE"
-        "${_appname}.png::https://raw.githubusercontent.com/fstubner/netscli/v${pkgver}/apps/netscli-gui/src-tauri/icons/128x128.png")
-source_x86_64=("${pkgname}-${pkgver}.AppImage::https://github.com/fstubner/netscli/releases/download/v${pkgver}/netscli-gui-linux-x86_64.AppImage")
+source=("LICENSE-${pkgver}::https://raw.githubusercontent.com/AxiomOperator/netXcli/v${pkgver}/LICENSE"
+        "${_appname}.png::https://raw.githubusercontent.com/AxiomOperator/netXcli/v${pkgver}/apps/netscli-gui/src-tauri/icons/128x128.png")
+source_x86_64=("${pkgname}-${pkgver}.AppImage::https://github.com/AxiomOperator/netXcli/releases/download/v${pkgver}/netscli-gui-linux-x86_64.AppImage")
 sha256sums=('@@SHA256_LICENSE@@' '@@SHA256_ICON@@')
 sha256sums_x86_64=('@@SHA256_X86_64@@')
 

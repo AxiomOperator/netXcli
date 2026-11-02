@@ -4,7 +4,7 @@ A network scanner written in Rust. CLI, terminal UI, and MCP server in
 one binary.
 
 ```bash
-cargo install netscli
+cargo install --git https://github.com/AxiomOperator/netXcli --locked netscli
 ```
 
 Then:
@@ -28,7 +28,7 @@ netscli serve        # MCP server (JSON-RPC over stdio)
 - **MCP.** `netscli serve` exposes nine tools over JSON-RPC on stdio
   for Claude Code, Cursor, or any MCP client.
 
-There's also a [desktop app](https://github.com/fstubner/netscli/releases)
+There's also a [desktop app](https://github.com/AxiomOperator/netXcli/releases)
 that shares the same Rust core but isn't published to crates.io
 (Tauri installers are attached to GitHub Releases instead).
 
@@ -43,7 +43,7 @@ resolution, interface listing, and optional packet capture.
 Install the pcap-enabled variant via the release script:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/fstubner/netscli/main/scripts/install.sh | NETSCLI_PCAP=1 bash
+curl -fsSL https://raw.githubusercontent.com/AxiomOperator/netXcli/main/scripts/install.sh | NETSCLI_PCAP=1 bash
 ```
 
 This picks the right binary variant and also installs the platform's
@@ -52,9 +52,9 @@ build from source with `cargo build --release -p netscli --features pcap`.
 
 ## Full docs
 
-See the main [README](https://github.com/fstubner/netscli) for
+See the main [README](https://github.com/AxiomOperator/netXcli) for
 screenshots and MCP client configuration, and
-[CONTRIBUTING.md](https://github.com/fstubner/netscli/blob/main/CONTRIBUTING.md)
+[CONTRIBUTING.md](https://github.com/AxiomOperator/netXcli/blob/main/CONTRIBUTING.md)
 for building from source and cross-compilation.
 
 ## License

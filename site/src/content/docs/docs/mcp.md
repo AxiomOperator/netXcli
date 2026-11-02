@@ -56,7 +56,7 @@ the machine.
 ### You would rather not edit a config file
 
 Download the `.mcpb` bundle for your platform from the
-[latest release](https://github.com/fstubner/netscli/releases/latest) and
+[latest release](https://github.com/AxiomOperator/netXcli/releases/latest) and
 open it with a client that supports MCP bundles. The bundle carries the binary, so nothing else is needed, no PATH entry and no Node.
 
 Bundles are named `netscli-<version>-<platform>-<arch>.mcpb`. Pick the one matching your machine. The format has no way to check that for you, and the

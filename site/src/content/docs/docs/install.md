@@ -53,7 +53,7 @@ iwr -useb https://netscli.com/install.ps1 | iex
 ```
 
 Direct Windows downloads are on the
-[releases page](https://github.com/fstubner/netscli/releases/latest). From
+[releases page](https://github.com/AxiomOperator/netXcli/releases/latest). From
 0.3.3 on, the `.exe` downloads and the `.msi` installer are signed, so Windows
 names the publisher instead of showing an unknown one. From 0.3.4 the desktop
 app inside the installer is signed too. While the certificate is new,
@@ -80,7 +80,7 @@ brew install --cask fstubner/tap/netscli-gui
 ```
 
 Or download the `.dmg` for Apple Silicon or Intel from the
-[releases page](https://github.com/fstubner/netscli/releases/latest).
+[releases page](https://github.com/AxiomOperator/netXcli/releases/latest).
 
 The desktop app is not notarized by Apple, so macOS blocks its first launch,
 whichever way you installed it. Open it once, then go to **System Settings →
@@ -109,7 +109,7 @@ yay -S netscli-bin
 
 For the desktop app, download the `.deb` (Debian, Ubuntu and derivatives) or
 the AppImage (any distribution) from the
-[releases page](https://github.com/fstubner/netscli/releases/latest):
+[releases page](https://github.com/AxiomOperator/netXcli/releases/latest):
 
 ```bash
 sudo apt install ./netscli-gui-linux-x86_64.deb
@@ -220,7 +220,7 @@ npm update -g netscli
 `npx netscli` may reuse a copy it has cached. To be sure you get the newest
 release, run `npx netscli@latest`.
 
-For a direct download, get the [latest GitHub release](https://github.com/fstubner/netscli/releases/latest) and replace the previous install with the matching package for your platform.
+For a direct download, get the [latest GitHub release](https://github.com/AxiomOperator/netXcli/releases/latest) and replace the previous install with the matching package for your platform.
 
 ## Verifying a download
 
@@ -235,8 +235,8 @@ missing. To check a manual download yourself:
 
 ```bash
 # Linux / macOS
-curl -fsSLO https://github.com/fstubner/netscli/releases/latest/download/netscli-linux-x86_64
-curl -fsSLO https://github.com/fstubner/netscli/releases/latest/download/netscli-linux-x86_64.sha256
+curl -fsSLO https://github.com/AxiomOperator/netXcli/releases/latest/download/netscli-linux-x86_64
+curl -fsSLO https://github.com/AxiomOperator/netXcli/releases/latest/download/netscli-linux-x86_64.sha256
 sha256sum -c netscli-linux-x86_64.sha256
 ```
 
@@ -261,7 +261,7 @@ and the signature is tied to the exact run that built it. Each of those assets s
 cosign verify-blob \
   --signature netscli-linux-x86_64.sig \
   --certificate netscli-linux-x86_64.pem \
-  --certificate-identity-regexp 'https://github.com/fstubner/netscli/.github/workflows/release\.yml@.*' \
+  --certificate-identity-regexp 'https://github.com/AxiomOperator/netXcli/.github/workflows/release\.yml@.*' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   netscli-linux-x86_64
 ```
@@ -298,7 +298,7 @@ $env:NETSCLI_PCAP=1; iwr -useb https://netscli.com/install.ps1 | iex
 
 On Windows this runs the Npcap installer, which needs administrator rights. Add `NETSCLI_SKIP_NPCAP=1` (or `NETSCLI_SKIP_LIBPCAP=1` on Unix) if you manage the capture library yourself.
 
-Alternatively, download the `-pcap` asset directly from the [latest release](https://github.com/fstubner/netscli/releases/latest) (`netscli-linux-x86_64-pcap`, `netscli-macos-aarch64-pcap`, `netscli-windows-x86_64-pcap.exe`, and so on) and install the capture library separately. There is no `-pcap` musl build.
+Alternatively, download the `-pcap` asset directly from the [latest release](https://github.com/AxiomOperator/netXcli/releases/latest) (`netscli-linux-x86_64-pcap`, `netscli-macos-aarch64-pcap`, `netscli-windows-x86_64-pcap.exe`, and so on) and install the capture library separately. There is no `-pcap` musl build.
 
 Or build it yourself, which needs the development headers (`libpcap-dev` on Debian/Ubuntu, or the [Npcap SDK](https://npcap.com/#download) on Windows):
 

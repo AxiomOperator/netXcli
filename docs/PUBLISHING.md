@@ -444,7 +444,7 @@ run Komac by hand with `--skip-pr-check`:
 
 ```powershell
 $env:GITHUB_TOKEN = "<the winget token>"
-komac update fstubner.netscli --version X.Y.Z --urls https://github.com/fstubner/netscli/releases/download/vX.Y.Z/netscli-windows-x86_64.exe --submit --skip-pr-check
+komac update fstubner.netscli --version X.Y.Z --urls https://github.com/AxiomOperator/netXcli/releases/download/vX.Y.Z/netscli-windows-x86_64.exe --submit --skip-pr-check
 ```
 
 For the desktop app it is `fstubner.netscli.gui` with the

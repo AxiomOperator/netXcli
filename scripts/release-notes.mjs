@@ -37,7 +37,7 @@ import { fileURLToPath } from 'node:url';
 import { releaseSummary } from './release-summary.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const REPO = 'https://github.com/fstubner/netscli';
+const REPO = 'https://github.com/AxiomOperator/netXcli';
 
 const tag = process.argv[2];
 if (!tag || !/^v\d+\.\d+\.\d+(-[0-9A-Za-z.]+)?$/.test(tag)) {

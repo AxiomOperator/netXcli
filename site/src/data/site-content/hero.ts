@@ -73,12 +73,12 @@ export const hero: Hero = {
     'The NetsCLI terminal UI running /discover, listing hosts with their device IDs, vendors and hostnames, with local interface activity along the bottom',
   heroImageWidth: 1640,
   heroImageHeight: 930,
-  sourceUrl: 'https://github.com/fstubner/netscli',
+  sourceUrl: 'https://github.com/AxiomOperator/netXcli',
   downloadLabel: 'Desktop app',
   downloadMenuLabel: 'Choose desktop installer',
 };
 
-const RELEASE_DOWNLOAD = 'https://github.com/fstubner/netscli/releases/latest/download';
+const RELEASE_DOWNLOAD = 'https://github.com/AxiomOperator/netXcli/releases/latest/download';
 
 // The desktop installers, in menu order. The first entry is also what the
 // server renders into the button before any script runs, so it has to be a

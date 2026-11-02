@@ -35,22 +35,22 @@ class Netscli < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/fstubner/netscli/releases/download/v#{version}/netscli-macos-aarch64"
+      url "https://github.com/AxiomOperator/netXcli/releases/download/v#{version}/netscli-macos-aarch64"
       sha256 "@@SHA256_MACOS_AARCH64@@"
     end
     on_intel do
-      url "https://github.com/fstubner/netscli/releases/download/v#{version}/netscli-macos-x86_64"
+      url "https://github.com/AxiomOperator/netXcli/releases/download/v#{version}/netscli-macos-x86_64"
       sha256 "@@SHA256_MACOS_X86_64@@"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/fstubner/netscli/releases/download/v#{version}/netscli-linux-aarch64"
+      url "https://github.com/AxiomOperator/netXcli/releases/download/v#{version}/netscli-linux-aarch64"
       sha256 "@@SHA256_LINUX_AARCH64@@"
     end
     on_intel do
-      url "https://github.com/fstubner/netscli/releases/download/v#{version}/netscli-linux-x86_64"
+      url "https://github.com/AxiomOperator/netXcli/releases/download/v#{version}/netscli-linux-x86_64"
       sha256 "@@SHA256_LINUX_X86_64@@"
     end
   end

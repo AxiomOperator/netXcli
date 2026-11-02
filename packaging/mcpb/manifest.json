@@ -12,10 +12,10 @@
   },
   "homepage": "https://netscli.com",
   "documentation": "https://netscli.com/docs/mcp/",
-  "support": "https://github.com/fstubner/netscli/issues",
+  "support": "https://github.com/AxiomOperator/netXcli/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fstubner/netscli.git"
+    "url": "git+https://github.com/AxiomOperator/netXcli.git"
   },
   "license": "MIT",
   "keywords": ["network", "scanner", "dns", "mdns", "diagnostics"],

@@ -356,7 +356,7 @@ signing key is stored anywhere. Each asset `<asset>` has `<asset>.sig` and
 ```bash
 cosign verify-blob \
   --signature <asset>.sig --certificate <asset>.pem \
-  --certificate-identity-regexp '^https://github\.com/fstubner/netscli/\.github/workflows/release\.yml@refs/(heads/main|tags/v[0-9.]+)$' \
+  --certificate-identity-regexp '^https://github\.com/AxiomOperator/netXcli/\.github/workflows/release\.yml@refs/(heads/main|tags/v[0-9.]+)$' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   <asset>
 ```
@@ -366,7 +366,7 @@ v0.3.1 was built, or on a release tag, where earlier ones were. A looser
 `release\.yml@.*` would accept a signature made by that file on any branch
 anyone with write access pushes. The `.mcpb` bundles are signed after the
 release is public, by `publish.yml`, so for them use
-`'^https://github\.com/fstubner/netscli/\.github/workflows/publish\.yml@refs/(heads/main|tags/v[0-9.]+)$'`.
+`'^https://github\.com/AxiomOperator/netXcli/\.github/workflows/publish\.yml@refs/(heads/main|tags/v[0-9.]+)$'`.
 The tag arm covers a release promoted by hand, which starts `publish.yml`
 from the tag.
 
@@ -389,7 +389,7 @@ downloads.
 ## The in-app updater
 
 The desktop app checks
-`https://github.com/fstubner/netscli/releases/latest/download/latest.json`
+`https://github.com/AxiomOperator/netXcli/releases/latest/download/latest.json`
 and installs an update only if its signature verifies against the public key
 compiled into the app. The app also sets `requireSignedVersion`, so it
 refuses an update whose signature is not bound to the version `latest.json`

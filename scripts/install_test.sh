@@ -143,7 +143,7 @@ else
 fi
 # The single quotes are the point: this is the literal regexp cosign must get.
 # shellcheck disable=SC2016
-want='--certificate-identity-regexp ^https://github\.com/fstubner/netscli/\.github/workflows/release\.yml@refs/(heads/main|tags/v[0-9.]+)$ --certificate-oidc-issuer https://token.actions.githubusercontent.com'
+want='--certificate-identity-regexp ^https://github\.com/AxiomOperator/netXcli/\.github/workflows/release\.yml@refs/(heads/main|tags/v[0-9.]+)$ --certificate-oidc-issuer https://token.actions.githubusercontent.com'
 if grep -qF -- "$want" "$FAKE_LOG"; then
   ok "asks cosign for release.yml on main or a release tag, and nothing looser"
 else

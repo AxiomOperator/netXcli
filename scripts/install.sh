@@ -2,14 +2,14 @@
 # NetsCLI Installer
 #
 # Remote usage:
-#   curl -fsSL https://raw.githubusercontent.com/fstubner/netscli/main/scripts/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/AxiomOperator/netXcli/main/scripts/install.sh | bash
 #
 # Local usage:
 #   ./scripts/install.sh
 #
 # Optional environment variables:
 #   - INSTALL_DIR: install directory (default: ~/.local/bin)
-#   - REPO: GitHub repo ("owner/name", default: fstubner/netscli)
+#   - REPO: GitHub repo ("owner/name", default: AxiomOperator/netXcli)
 #   - NETSCLI_VERSION: release tag (e.g. v0.1.0; default: latest)
 #   - NETSCLI_SHA256 / NETSCLI_SHA256_URL: supply the expected checksum
 #     explicitly. By default the installer fetches "<asset>.sha256" from
@@ -37,7 +37,7 @@ set -euo pipefail
 
 INSTALL_DIR="${INSTALL_DIR:-$HOME/.local/bin}"
 BINARY_NAME="netscli"
-REPO="${REPO:-fstubner/netscli}"
+REPO="${REPO:-AxiomOperator/netXcli}"
 NETSCLI_VERSION="${NETSCLI_VERSION:-}" # e.g. v0.1.0 (defaults to latest)
 NETSCLI_SHA256="${NETSCLI_SHA256:-}" # optional checksum for the binary
 NETSCLI_SHA256_URL="${NETSCLI_SHA256_URL:-}" # optional URL to fetch checksum

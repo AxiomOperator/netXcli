@@ -94,7 +94,7 @@ describe('useReleaseNotifications: which kind of notice', () => {
     await waitFor(() =>
       expect(showUpdateToast).toHaveBeenCalledWith(
         '0.4.0',
-        'https://github.com/fstubner/netscli/releases/tag/v0.4.0',
+        'https://github.com/AxiomOperator/netXcli/releases/tag/v0.4.0',
         true,
       ),
     );
@@ -104,7 +104,7 @@ describe('useReleaseNotifications: which kind of notice', () => {
   });
 
   it('keeps the link-only notice where the install cannot update itself', async () => {
-    vi.mocked(fetchLatestRelease).mockResolvedValue({ version: '0.4.0', url: 'https://github.com/fstubner/netscli/releases/tag/v0.4.0' });
+    vi.mocked(fetchLatestRelease).mockResolvedValue({ version: '0.4.0', url: 'https://github.com/AxiomOperator/netXcli/releases/tag/v0.4.0' });
     const showUpdateToast = vi.fn();
 
     const { result } = renderHook(() => useReleaseNotifications(options({ showUpdateToast })));
@@ -121,7 +121,7 @@ describe('useReleaseNotifications: which kind of notice', () => {
     // MSI over the top of the install Scoop manages.
     const reason = 'Installed with Scoop, so update it there: scoop update netscli-gui';
     vi.mocked(getInstallSupport).mockResolvedValue({ supported: false, reason });
-    vi.mocked(fetchLatestRelease).mockResolvedValue({ version: '0.4.0', url: 'https://github.com/fstubner/netscli/releases/tag/v0.4.0' });
+    vi.mocked(fetchLatestRelease).mockResolvedValue({ version: '0.4.0', url: 'https://github.com/AxiomOperator/netXcli/releases/tag/v0.4.0' });
     const showUpdateToast = vi.fn();
 
     renderHook(() => useReleaseNotifications(options({ showUpdateToast })));
@@ -135,7 +135,7 @@ describe('useReleaseNotifications: which kind of notice', () => {
     // attached, or a release that shipped without one.
     vi.mocked(getInstallSupport).mockResolvedValue({ supported: true, reason: null });
     vi.mocked(checkForUpdate).mockRejectedValue(new Error('404'));
-    vi.mocked(fetchLatestRelease).mockResolvedValue({ version: '0.4.0', url: 'https://github.com/fstubner/netscli/releases/tag/v0.4.0' });
+    vi.mocked(fetchLatestRelease).mockResolvedValue({ version: '0.4.0', url: 'https://github.com/AxiomOperator/netXcli/releases/tag/v0.4.0' });
     const showUpdateToast = vi.fn();
     vi.spyOn(console, 'error').mockImplementation(() => {});
 

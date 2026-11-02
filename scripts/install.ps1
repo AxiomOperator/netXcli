@@ -1,11 +1,11 @@
 # NetsCLI Installer for Windows
 #
 # Usage:
-#   iwr -useb https://raw.githubusercontent.com/fstubner/netscli/main/scripts/install.ps1 | iex
+#   iwr -useb https://raw.githubusercontent.com/AxiomOperator/netXcli/main/scripts/install.ps1 | iex
 #
 # Optional environment variables:
 #   - INSTALL_DIR: Where to place netscli.exe (default: $env:USERPROFILE\.cargo\bin)
-#   - REPO:        GitHub repo, like "owner/name" (default: "fstubner/netscli")
+#   - REPO:        GitHub repo, like "owner/name" (default: "AxiomOperator/netXcli")
 #   - NETSCLI_VERSION: Release tag to install (e.g. "v0.1.0"); defaults to latest
 #   - NETSCLI_PCAP=1: install the PCAP-enabled binary AND run the Npcap installer
 #                    (admin required for the Npcap step)
@@ -33,7 +33,7 @@
 #     unchanged since, chaining to a root this machine trusts) and the signer
 #     must be NETSCLI_SIGNER. A bad signature stops the install. Skipped,
 #     with a note, for a pinned NETSCLI_VERSION older than v0.3.3 (the first
-#     signed release), for a REPO other than fstubner/netscli unless
+#     signed release), for a REPO other than AxiomOperator/netXcli unless
 #     NETSCLI_SIGNER is set, and where Get-AuthenticodeSignature does not
 #     exist.
 # The script says what it checked.
@@ -201,7 +201,7 @@ function Install-NetsCLI {
 
   $INSTALL_DIR = if ($env:INSTALL_DIR) { $env:INSTALL_DIR } else { "$env:USERPROFILE\.cargo\bin" }
   $BINARY_NAME = "netscli.exe"
-  $REPO = if ($env:REPO) { $env:REPO } else { "fstubner/netscli" }
+  $REPO = if ($env:REPO) { $env:REPO } else { "AxiomOperator/netXcli" }
   $NETSCLI_VERSION = if ($env:NETSCLI_VERSION) { $env:NETSCLI_VERSION } else { "" }
   $NETSCLI_SHA256 = if ($env:NETSCLI_SHA256) { $env:NETSCLI_SHA256 } else { "" }
   $NETSCLI_SHA256_URL = if ($env:NETSCLI_SHA256_URL) { $env:NETSCLI_SHA256_URL } else { "" }
@@ -325,7 +325,7 @@ function Install-NetsCLI {
     # check, or no way to check it, are said out loud instead.
     if (Test-True $NETSCLI_SKIP_SIGNATURE) {
       Write-Host "Not checked: the Authenticode signature (NETSCLI_SKIP_SIGNATURE=1)." -ForegroundColor Yellow
-    } elseif ($REPO -ne "fstubner/netscli" -and -not $env:NETSCLI_SIGNER) {
+    } elseif ($REPO -ne "AxiomOperator/netXcli" -and -not $env:NETSCLI_SIGNER) {
       Write-Host "Not checked: the Authenticode signature. REPO is $REPO, so set NETSCLI_SIGNER to its signer to check it." -ForegroundColor Yellow
     } elseif (-not (Test-SignedRelease $NETSCLI_VERSION)) {
       Write-Host "Not checked: the Authenticode signature. $NETSCLI_VERSION is older than v0.3.3, the first signed release." -ForegroundColor Yellow

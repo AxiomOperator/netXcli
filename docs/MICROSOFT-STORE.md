@@ -64,7 +64,7 @@ reserve **NetsCLI**.
 | Section | What to enter |
 | --- | --- |
 | Pricing and availability | Free, all markets |
-| Properties | Category **Developer tools**. Privacy policy URL from above. Website https://netscli.com. Support contact https://github.com/fstubner/netscli/issues |
+| Properties | Category **Developer tools**. Privacy policy URL from above. Website https://netscli.com. Support contact https://github.com/AxiomOperator/netXcli/issues |
 | Age ratings | Complete the IARC questionnaire. No violence, no user content, no communication between users, no purchases. It reads local network information, which the privacy policy covers. |
 | Packages | Package URL `https://netscli.com/download/v0.3.4/netscli-gui-windows-x86_64.msi`. Architecture **x64**. Language **English (en-us)**. App type **MSI**. |
 | Store listing | The text and images below |
@@ -143,7 +143,7 @@ gh workflow run msstore.yml -f tag=v0.3.5
 >
 > Everything runs on your computer. There are no accounts and no telemetry, and nothing you scan is sent anywhere.
 >
-> The same scanner is available as a command line tool, a terminal UI, and an MCP server that AI assistants can use. The desktop app is the easiest way in. NetsCLI is free and open source under the MIT license, at https://github.com/fstubner/netscli.
+> The same scanner is available as a command line tool, a terminal UI, and an MCP server that AI assistants can use. The desktop app is the easiest way in. NetsCLI is free and open source under the MIT license, at https://github.com/AxiomOperator/netXcli.
 
 ### Features (up to 20)
 
