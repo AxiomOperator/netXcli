@@ -34,8 +34,12 @@ pub(super) fn clear_table() -> Result<()> {
     mutate::clear_table()
 }
 
-/// Whether `ip` answers ARP right now. Blocking; see windows_resolve.rs.
+/// The MAC `ip` answers ARP with right now, asked from `src`. Blocking; see
+/// windows_resolve.rs.
 #[cfg(target_os = "windows")]
-pub(super) fn answers_arp(ip: std::net::Ipv4Addr) -> bool {
-    windows_resolve::resolve(ip).is_some()
+pub(super) fn resolve(
+    ip: std::net::Ipv4Addr,
+    src: Option<std::net::Ipv4Addr>,
+) -> Option<MacAddress> {
+    windows_resolve::resolve(ip, src).map(MacAddress::new)
 }

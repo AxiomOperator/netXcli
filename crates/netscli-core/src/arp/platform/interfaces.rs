@@ -97,7 +97,11 @@ fn ipnet_from_adapter(ip: IpAddr, prefixes: &[(IpAddr, u32)]) -> Option<IpNet> {
         .filter(|(prefix_ip, len)| {
             // A /0 default entry matches everything and tells us nothing
             // about this address's subnet, so it is not a useful answer.
+            // Nor does a full-length one: Windows lists each address's own
+            // /32 (and the broadcast /32) beside the subnet, and as the
+            // longest match it used to win, so every address came out /32.
             *len > 0
+                && *len < host_len
                 && IpNet::new(*prefix_ip, (*len).min(host_len) as u8)
                     .map(|net| net.contains(&ip))
                     .unwrap_or(false)
@@ -137,6 +141,7 @@ mod tests {
             .filter(|(prefix_ip, _)| prefix_ip.is_ipv4() == ip.is_ipv4())
             .filter(|(prefix_ip, len)| {
                 *len > 0
+                    && *len < host_len
                     && IpNet::new(*prefix_ip, (*len).min(host_len) as u8)
                         .map(|net| net.contains(&ip))
                         .unwrap_or(false)
@@ -182,6 +187,18 @@ mod tests {
         assert_eq!(select_prefix_len(v4("10.1.2.7"), &prefixes), 24);
     }
 
+    // Windows lists the address's own /32 and the broadcast /32 next to
+    // the subnet. Taking the longest match reported every address as /32.
+    #[test]
+    fn host_entries_do_not_beat_the_subnet() {
+        let prefixes = vec![
+            (v4("192.1.0.0"), 22),
+            (v4("192.1.3.50"), 32),
+            (v4("192.1.3.255"), 32),
+        ];
+        assert_eq!(select_prefix_len(v4("192.1.3.50"), &prefixes), 22);
+    }
+
     // A /0 matches everything and says nothing about the subnet.
     #[test]
     fn default_route_prefix_is_ignored() {
@@ -212,7 +229,11 @@ mod tests {
     #[cfg(windows)]
     #[test]
     fn mirror_matches_the_real_selection() {
-        let prefixes = vec![(v4("192.168.1.0"), 24), (v4("10.0.0.0"), 8)];
+        let prefixes = vec![
+            (v4("192.168.1.0"), 24),
+            (v4("10.0.0.0"), 8),
+            (v4("192.168.1.5"), 32),
+        ];
         for ip in ["192.168.1.5", "10.0.0.5", "172.16.0.1"] {
             let addr = v4(ip);
             let expected = IpNet::new(addr, select_prefix_len(addr, &prefixes) as u8).ok();

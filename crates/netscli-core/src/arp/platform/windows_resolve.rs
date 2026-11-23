@@ -10,13 +10,22 @@
 //! own retries run out, about 4 s for an address with nothing behind it. A
 //! device that is there but ignores ping still answers ARP, so this keeps
 //! the ICMP-silent devices the table is there to find and drops the ghosts.
+//!
+//! The request goes out from `src`, a local address on the interface whose
+//! subnet holds the target. With no source Windows picks the interface by
+//! route, and a VPN that routes the LAN through its tunnel wins that: with
+//! NetBird's `wt0` holding 192.1.0.0/22 at metric 1 against the Ethernet
+//! adapter's 256, every lookup failed after 3-4 s (ERROR_BAD_NET_NAME) while
+//! the same lookup from the Ethernet address answered in 8-14 ms (measured
+//! 2026-11-23). Discovery then had a MAC for 30 of 343 live hosts.
 
 use std::net::Ipv4Addr;
 
 use windows_sys::Win32::NetworkManagement::IpHelper::SendARP;
 
 /// The MAC `ip` answers ARP with, or `None` if nothing answered. Blocking.
-pub(super) fn resolve(ip: Ipv4Addr) -> Option<[u8; 6]> {
+/// `src` picks the interface the request leaves by; see the module docs.
+pub(super) fn resolve(ip: Ipv4Addr, src: Option<Ipv4Addr>) -> Option<[u8; 6]> {
     // Two ULONGs, as SendARP documents, which also gives the buffer a ULONG's
     // alignment. A byte array has none.
     let mut mac = [0u32; 2];
@@ -24,7 +33,8 @@ pub(super) fn resolve(ip: Ipv4Addr) -> Option<[u8; 6]> {
     // SendARP takes the address in network byte order as a u32.
     let dest = u32::from_ne_bytes(ip.octets());
     // SAFETY: an 8-byte buffer and its length; SendARP writes at most `len`.
-    let status = unsafe { SendARP(dest, 0, mac.as_mut_ptr().cast(), &mut len) };
+    let source = src.map_or(0, |src| u32::from_ne_bytes(src.octets()));
+    let status = unsafe { SendARP(dest, source, mac.as_mut_ptr().cast(), &mut len) };
     if status != 0 || len != 6 {
         return None;
     }

@@ -135,7 +135,7 @@ impl DiscoverEngine {
         // On a blocking thread: this shells out to `arp` on Windows and
         // macOS, and running it inline parked a runtime worker on the child
         // process for every discover and sweep.
-        let arp_map: HashMap<IpAddr, crate::arp::ArpEntry> =
+        let mut arp_map: HashMap<IpAddr, crate::arp::ArpEntry> =
             tokio::task::spawn_blocking(NetworkManager::get_arp_table)
                 .await
                 .unwrap_or_else(|_| Ok(Vec::new()))
@@ -180,6 +180,32 @@ impl DiscoverEngine {
             .collect();
         let confirm = tokio::spawn(async move {
             crate::arp::still_present(&neighbor_v4, NEIGHBOR_CONFIRM_WAIT).await
+        });
+
+        // Hosts that answered but have no table entry. This machine's own
+        // addresses never appear in the table, so they come from its
+        // interfaces. The rest are asked over ARP, also in the background:
+        // the table is often missing far more than a few. A sweep of a large
+        // subnet fills it with entries for addresses nobody answered and
+        // pushes out real ones (Windows keeps 256 per interface), and a VPN
+        // that routes the LAN through its tunnel means no ARP was sent for
+        // them at all. See arp/platform/windows_resolve.rs.
+        let interfaces = tokio::task::spawn_blocking(NetworkManager::get_interfaces)
+            .await
+            .unwrap_or_default();
+        let mut unresolved: Vec<std::net::Ipv4Addr> = Vec::new();
+        for r in &alive {
+            if arp_map.contains_key(&r.ip) {
+                continue;
+            }
+            if let Some(own) = crate::arp::own_entry(r.ip, &interfaces) {
+                arp_map.insert(r.ip, own);
+            } else if let IpAddr::V4(v4) = r.ip {
+                unresolved.push(v4);
+            }
+        }
+        let fill = tokio::spawn(async move {
+            crate::arp::resolve_macs(&unresolved, NEIGHBOR_CONFIRM_WAIT).await
         });
 
         // 3) Optionally reverse-DNS alive hosts using a single resolver.
@@ -238,6 +264,13 @@ impl DiscoverEngine {
         let mdns_names = mdns_fusion::collect_names(mdns_browse).await;
         #[cfg(not(feature = "mdns"))]
         let mdns_names: HashMap<IpAddr, String> = HashMap::new();
+
+        arp_map.extend(
+            fill.await
+                .unwrap_or_default()
+                .into_iter()
+                .map(|(ip, entry)| (IpAddr::V4(ip), entry)),
+        );
 
         let build = |ip: IpAddr, rtt_ms: Option<u64>, found_by: FoundBy| {
             let mac_entry = arp_map.get(&ip);

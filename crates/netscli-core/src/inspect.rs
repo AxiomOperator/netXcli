@@ -5,6 +5,10 @@ use serde::Serialize;
 use std::net::IpAddr;
 use std::time::Duration;
 
+/// How long inspect waits for the host's MAC. The slowest real ARP answer
+/// measured was 2.2 s (2026-10-06), the same figure discovery waits for.
+const ARP_WAIT: Duration = Duration::from_millis(2500);
+
 #[derive(Debug, Clone, Serialize)]
 #[cfg_attr(feature = "ts", derive(ts_rs::TS), ts(export))]
 pub struct InspectResult {
@@ -89,15 +93,20 @@ impl InspectEngine {
         // off the async workers.
         let smb_wait = Duration::from_millis(self.scan_timeout_ms.max(1_000));
         let smb_fut = crate::os_hint::smb::query(ip_for_scan, smb_wait);
-        let arp_fut =
-            tokio::task::spawn_blocking(move || crate::arp::NetworkManager::find_mac(&ip_for_scan));
+        // find_mac asks the host over ARP when the table has nothing, which
+        // blocks for about 4 s if nothing answers; bounded so a down host
+        // does not make inspect wait on it.
+        let arp_fut = tokio::time::timeout(
+            ARP_WAIT,
+            tokio::task::spawn_blocking(move || crate::arp::NetworkManager::find_mac(&ip_for_scan)),
+        );
 
         let (ping_res, ports_res, hostname, smb, arp) =
             tokio::join!(ping_fut, scan_fut, hostname_fut, smb_fut, arp_fut);
 
         let ports = ports_res?;
         let open_ports = ports.iter().filter(|p| p.open).cloned().collect();
-        let arp = arp.ok().flatten();
+        let arp = arp.ok().and_then(std::result::Result::ok).flatten();
         let mac = arp.as_ref().map(|entry| entry.mac.to_string());
         let vendor = arp.and_then(|entry| entry.vendor);
         let os_hint = crate::os_hint::hint(&crate::os_hint::Clues {
